@@ -26,7 +26,6 @@
         <meta name="msapplication-wide310x150logo" content="img/widetile.png" />
         <meta name="msapplication-square310x310logo" content="img/largetile.png" />
 
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
 
@@ -42,73 +41,71 @@
             <div class="game">
                 <!-- Speelbord -->
                 <section class="gameboard">
-                    <div class="gameboard-cells">
-                        <div class="gameboard-cell"><img src="img/empty.jpg" alt="Cel is leeg"></div>
-                        <div class="gameboard-cell"><img src="img/empty.jpg" alt="Cel is leeg"></div>
-                        <div class="gameboard-cell"><img src="img/empty.jpg" alt="Cel is leeg"></div>
-                        <div class="gameboard-cell"><img src="img/empty.jpg" alt="Cel is leeg"></div>
-                        <div class="gameboard-cell"><img src="img/empty.jpg" alt="Cel is leeg"></div>
-                        <div class="gameboard-cell"><img src="img/empty.jpg" alt="Cel is leeg"></div>
-                        <div class="gameboard-cell"><img src="img/empty.jpg" alt="Cel is leeg"></div>
-                        <div class="gameboard-cell"><img src="img/empty.jpg" alt="Cel is leeg"></div>
-                        <div class="gameboard-cell"><img src="img/empty.jpg" alt="Cel is leeg"></div>
-                    </div>
+                    <img src="img/empty.jpg" alt="Cel is leeg">
+                    <img src="img/empty.jpg" alt="Cel is leeg">
+                    <img src="img/empty.jpg" alt="Cel is leeg">
+                    <img src="img/empty.jpg" alt="Cel is leeg">
+                    <img src="img/empty.jpg" alt="Cel is leeg">
+                    <img src="img/empty.jpg" alt="Cel is leeg">
+                    <img src="img/empty.jpg" alt="Cel is leeg">
+                    <img src="img/empty.jpg" alt="Cel is leeg">
+                    <img src="img/empty.jpg" alt="Cel is leeg">
                 </section>
                 <!-- EINDE Speelbord -->
-                <!-- Info Sectie -->
+                <!-- Game Info Sectie -->
                 <section class="gameinfo">
-                    <div class="gameinfo-data">
+                    <div class="gameinfo-container">
                         <!-- Beurt Info -->
-                        <div>
+                        <div class="info">
                             <header class="info-header">
                                 Aan beurt
                             </header>
-                            <div>
-                                <div>
-                                    <img class="player-small-img" src="img/circle200x200.png" alt="Speler 1 Symbool" />
+                            <div class="info-container">
+                                <div class="info-player">
+                                    <img src="img/circle200x200.png" alt="Speler 1 Symbool" />
                                     <p>Speler</p>
                                 </div>
-                                <p class="round-number">1</p>
+                                <p class="turn-player">1</p>
                             </div>
                         </div>
                         <!-- EINDE Beurt Info -->
                         <!-- Score & Ronde Info -->
-                        <div>
+                        <div class="info">
                             <header class="info-header">
                                 Scores
                             </header>
-                            <div>
-                                <div class="info-block">
-                                    <img class="player-small-img" src="img/circle200x200.png" alt="Speler 1" />
+                            <div class="info-container">
+                                <div class="info-player">
+                                    <img src="img/circle200x200.png" alt="Speler 1" />
                                     <p>Speler 1</p>
                                 </div>
                                 <p>0</p>
                             </div>
-                            <div>
-                                <div class="info-block">
-                                    <img class="player-small-img" src="img/cross200x200.png" alt="Speler 2" />
+                            <div class="info-container">
+                                <div class="info-player">
+                                    <img src="img/cross200x200.png" alt="Speler 2" />
                                     <p>Speler 2</p>
                                 </div>
                                 <p>0</p>
                             </div>
-                            <div class="info-block">
-                                <p>Ronde</p>
+                            <div class="info-round">
+                                <p>Huidige ronde</p>
                                 <p>0</p>
                             </div>
                         </div>
                         <!-- EINDE Score & Ronde Info -->
                         <!-- Ronde timer info -->
-                        <div class="round-timer">
+                        <div class="info">
                             <header class="info-header">
                                 Ronde tijd
                             </header>
-                            <p>00:00:00</p>
+                            <p class="round-timer">00:00:00</p>
                         </div>
                         <!-- EINDE Ronde timer info -->
                     </div>
                     <!-- Button -->
-                    <div class="gameinfo-btn">
-                        <button>Start spel</button>
+                    <div class="game-button">
+                        <button>Start ronde</button>
                     </div>
                     <!-- EINDE Button -->
                 </section>
@@ -127,8 +124,6 @@
             </div>
         </div>
 
-        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script type="text/javascript" src="js/bke.js"></script>
     </body>
 </html>
