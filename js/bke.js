@@ -150,7 +150,140 @@ function buttonClick(event_element)
  */
 function cellClick(event_element)
 {
-    
+    if (event_element.target.src.includes('img/empty.jpg')) {
+        // Cel is leeg, dus plaatsen we het symbool van de huidige speler
+        if (current_player == 1)
+            event_element.target.src = 'img/cross200x200.png';
+        else
+            event_element.target.src = 'img/circle200x200.png';
+        
+        // Cel onklikbaar maken
+        event_element.target.removeEventListener('click', cellClick);
+
+        // Wisselen van beurt
+        current_player = (current_player == 1 ? 2 : 1);
+
+        // Tonen van de beurt
+        element_turn_number.innerHTML = current_player;
+        element_turn_image.src = (current_player == 1 ? 'img/cross200x200.png' : 'img/circle200x200.png');
+
+        // Controleren van de win-situaties
+        if (        // SPELER 1 (cross)
+            (           // Rijen
+                (                                                   // Rij 1
+                    element_cells[0].src.includes('img/cross200x200.png') &&
+                    element_cells[1].src.includes('img/cross200x200.png') &&
+                    element_cells[2].src.includes('img/cross200x200.png')
+                ) || (                                              // Rij 2
+                    element_cells[3].src.includes('img/cross200x200.png') &&
+                    element_cells[4].src.includes('img/cross200x200.png') &&
+                    element_cells[5].src.includes('img/cross200x200.png')
+                ) || (                                              // Rij 3
+                    element_cells[6].src.includes('img/cross200x200.png') &&
+                    element_cells[7].src.includes('img/cross200x200.png') &&
+                    element_cells[8].src.includes('img/cross200x200.png')
+                )
+            ) || (      // Kolommen
+                (                                                   // Kolom 1
+                    element_cells[0].src.includes('img/cross200x200.png') &&
+                    element_cells[3].src.includes('img/cross200x200.png') &&
+                    element_cells[6].src.includes('img/cross200x200.png')
+                ) || (                                              // Kolom 2
+                    element_cells[1].src.includes('img/cross200x200.png') &&
+                    element_cells[4].src.includes('img/cross200x200.png') &&
+                    element_cells[7].src.includes('img/cross200x200.png')
+                ) || (                                              // Kolom 3
+                    element_cells[2].src.includes('img/cross200x200.png') &&
+                    element_cells[5].src.includes('img/cross200x200.png') &&
+                    element_cells[8].src.includes('img/cross200x200.png')
+                )
+            ) || (      // Diagonalen
+                (                                                   // Diagonaal 1
+                    element_cells[0].src.includes('img/cross200x200.png') &&
+                    element_cells[4].src.includes('img/cross200x200.png') &&
+                    element_cells[7].src.includes('img/cross200x200.png')
+                ) || (                                              // Diagonaal 2
+                    element_cells[2].src.includes('img/cross200x200.png') &&
+                    element_cells[4].src.includes('img/cross200x200.png') &&
+                    element_cells[6].src.includes('img/cross200x200.png')
+                )
+            )
+        ) {
+            // SPELER 1 HEEFT GEWONNEN
+            // STAP 1 - Punten toekennen aan speler 1
+            score_player1 += 2;
+            // STAP 2 - Score tonen
+            element_score_player1.innerHTML = score_player1;
+            // STAP 3 - Ronde resetten
+            element_game_button.click();        // TRUCJE :-)
+
+        } // EINDE SPELER 1 WIN CONTROLE
+        else if (    // SPELER 2 (circle)
+            (           // Rijen
+                (                                                   // Rij 1
+                    element_cells[0].src.includes('img/cross200x200.png') &&
+                    element_cells[1].src.includes('img/cross200x200.png') &&
+                    element_cells[2].src.includes('img/cross200x200.png')
+                ) || (                                              // Rij 2
+                    element_cells[3].src.includes('img/cross200x200.png') &&
+                    element_cells[4].src.includes('img/cross200x200.png') &&
+                    element_cells[5].src.includes('img/cross200x200.png')
+                ) || (                                              // Rij 3
+                    element_cells[6].src.includes('img/cross200x200.png') &&
+                    element_cells[7].src.includes('img/cross200x200.png') &&
+                    element_cells[8].src.includes('img/cross200x200.png')
+                )
+            ) || (      // Kolommen
+                (                                                   // Kolom 1
+                    element_cells[0].src.includes('img/cross200x200.png') &&
+                    element_cells[3].src.includes('img/cross200x200.png') &&
+                    element_cells[6].src.includes('img/cross200x200.png')
+                ) || (                                              // Kolom 2
+                    element_cells[1].src.includes('img/cross200x200.png') &&
+                    element_cells[4].src.includes('img/cross200x200.png') &&
+                    element_cells[7].src.includes('img/cross200x200.png')
+                ) || (                                              // Kolom 3
+                    element_cells[2].src.includes('img/cross200x200.png') &&
+                    element_cells[5].src.includes('img/cross200x200.png') &&
+                    element_cells[8].src.includes('img/cross200x200.png')
+                )
+            ) || (      // Diagonalen
+                (                                                   // Diagonaal 1
+                    element_cells[0].src.includes('img/cross200x200.png') &&
+                    element_cells[4].src.includes('img/cross200x200.png') &&
+                    element_cells[7].src.includes('img/cross200x200.png')
+                ) || (                                              // Diagonaal 2
+                    element_cells[2].src.includes('img/cross200x200.png') &&
+                    element_cells[4].src.includes('img/cross200x200.png') &&
+                    element_cells[6].src.includes('img/cross200x200.png')
+                )
+            )
+        ) {
+            // SPELER 2 HEEFT GEWONNEN
+            // STAP 1 - Punten toekennen aan speler 2
+            score_player2 += 2;
+            // STAP 2 - Score tonen
+            element_score_player2.innerHTML = score_player2;
+            // STAP 3 - Ronde resetten
+            element_game_button.click();        // TRUCJE :-)
+
+        } // EINDE SPELER 2 WIN CONTROLE
+        else if (
+            isDraw()        // Controleer op gelijkspel
+        ) {
+            // GELIJKSPEL
+            score_player1 += 1;
+            score_player2 += 1;
+            element_score_player1.innerHTML = score_player1;
+            element_score_player2.innerHTML = score_player2;
+
+            element_game_button.click();
+        }
+        
+    } // EINDE 1e IF
+
+    // Als de cel niet leeg is dan doen we niets, dus hoeven we hier geen code
+    // te plaatsen
 }
 
 /*
@@ -160,5 +293,35 @@ function cellClick(event_element)
  */
 function roundsTimer()
 {
+    let elapsedTimeInMinutes = 0;   // Hulpvariabele
+
+    elapsedTimeInSeconds++;         // Plus 1, want er is weer een seconde voorbij
     
+    // Het aantal verlopen minuten bepalen
+    elapsedTimeInMinutes =  parseInt(elapsedTimeInSeconds / 60);
+
+    // We maken de weergave van de ronde tijd in de format 00:00
+    timer_info.innerHTML =  (elapsedTimeInMinutes < 10 ? '0': '') + // 0 vooraf laten gaan in de minuten?
+                            elapsedTimeInMinutes.toString() + ':' +
+                            (parseInt((elapsedTimeInSeconds % 60)) < 10 ? '0': '') + // 0 vooraf laten gaan in de seconden?
+                            parseInt((elapsedTimeInSeconds % 60)).toString();
+}
+
+/*
+ * Dit is een helper function
+ * Deze functie gebruiken we om te controleren of
+ * er sprake is van een gelijk spel
+ * 
+ * Return value:
+ * TRUE         Er is sprake van een gelijkspel
+ * FALSE        Geen gelijk spel
+ */
+function isDraw()
+{
+    for (let cell of element_cells) {   // Lus om langs alle cellen te lopen
+        if (cell.src.includes('img/empty.jpg'))
+            return false;   // We zijn een lege cel tegengekomen
+    }
+
+    return true;    // Als we hier komen zijn we geen lege cel tegengekomen
 }
