@@ -1,4 +1,4 @@
-# MODULE 05 - Mijn Eerste Webgame
+# MODULE 2223-05 - Mijn Eerste Webgame
   
 |   	|   	|
 |---	|---	|
@@ -31,15 +31,13 @@ Tijdens de instructiemomenten werkt de docent samen met jullie (als voorbeeld) a
 
   ***style.css***   
 
-
 * **img** *(map)*  
   Alle afbeeldingen die we in de applicatie gebruiken. Van favicon tot .png files.  
 
 * **js** *(map)*  
   Hierin plaatsen we het bestand:  
     
-  ***index.js***  
-    
+  ***bke.js***  
   In dit bestand plaatsen we alle JavaScript code om het spel werkend te krijgen.
   
 * **index.html** *(bestand)*  
